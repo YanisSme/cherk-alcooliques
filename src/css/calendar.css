@@ -45,26 +45,31 @@
 }
 
 .calendar .cell {
+  color: rgb(207, 93, 0);
   padding: 3px 11px 0;
-
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
   cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 3px;
+  padding-right: 9px;
 }
 
 .cell.empty {
-  background-image: url("icons/empty-glass.svg");
+  background-image: url("icons/blaireau-vide-800.png");
 }
 
 .cell.full {
-  background-image: url("icons/full-glass.svg");
+  background-image: url("icons/blaireau-plein-800.png");
 }
 
 .cell.not-come {
-  background-image: url("icons/not-come-glass.svg");
-  color: var(--not-come-text-color);
+  background-image: url("icons/blaireau-attend-800.png");
+  color:rgb(196, 196, 0) 
 }
 
 .cell.today {
