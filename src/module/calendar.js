@@ -123,7 +123,7 @@ const renderYearCalendar = () => {
   for (let i = 0; i < 12; i++) {
     let date = new Date(store.currentYear, i)
     const currentMonthIndex = date.getMonth()
-    const currentMonthName = date.toLocaleDateString('en-EN', { month: 'long' })
+    const currentMonthName = date.toLocaleDateString('fr-FR', { month: 'long' })
 
     const monthEl = document.createElement('div')
     monthEl.classList.add('year-month')
@@ -184,7 +184,7 @@ const renderYearCalendar = () => {
 
 const renderSelector = () => {
   if (store.viewType === ViewType.Month)
-    DOM.selector.item.innerText = `${(new Date(store.currentYear, store.currentMonth)).toLocaleDateString('en', { month: 'long' })} ${store.currentYear}`
+    DOM.selector.item.innerText = `${(new Date(store.currentYear, store.currentMonth)).toLocaleDateString('fr', { month: 'long' })} ${store.currentYear}`
   else if (store.viewType === ViewType.Year)
     DOM.selector.item.innerText = store.currentYear
 }
