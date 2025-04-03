@@ -1,0 +1,88 @@
+:root {
+  --text-color: #343434;
+  --no-active-text-color: #d5d5d5;
+  --not-come-text-color: #959595;
+  --not-come-icon-color: #e8e8e8;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+
+  color: var(--text-color)
+}
+
+header {
+  padding: 20px 0;
+}
+
+header .title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+header .tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  border-bottom: 2px solid #eee;
+}
+
+header .tabs .tab {
+  padding-bottom: 10px;
+  margin-bottom: -2px;
+
+  font-size: 18px;
+  color: var(--no-active-text-color);
+  cursor: pointer;
+}
+
+header .tabs .tab.active {
+  color: var(--text-color);
+  border-bottom: 2px solid red;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 375px;
+}
+
+.button-go-today {
+  margin-top: 20px;
+  width: 200px;
+  height: 40px;
+
+  background: none;
+  border: 2px solid #767676;
+
+  cursor: pointer;
+  color: #767676;
+}
+
+.statistic {
+  width: 280px;
+  margin-top: 50px;
+}
+
+.statistic-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+
+  pointer-events: none;
+  font-size: 10px;
+  color: rgba(0,0,0,.5)
+}

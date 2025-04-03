@@ -1,0 +1,48 @@
+{
+   "name": "Drink calendar",
+   "short_name": "Calendar",
+   "icons": [
+      {
+         "src": "assets/images/app-icon-512.png",
+         "type": "image/png",
+         "sizes": "512x512"
+      },
+      {
+         "src": "assets/images/app-icon-256.png",
+         "type": "image/png",
+         "sizes": "256x256"
+      },
+      {
+         "src": "assets/images/app-icon-192.png",
+         "type": "image/png",
+         "sizes": "192x192"
+      },
+      {
+         "src": "assets/images/app-icon-168.png",
+         "type": "image/png",
+         "sizes": "168x168"
+      },
+      {
+         "src": "assets/images/app-icon-144.png",
+         "type": "image/png",
+         "sizes": "144x144"
+      },
+      {
+         "src": "assets/images/app-icon-96.png",
+         "type": "image/png",
+         "sizes": "96x96"
+      },
+      {
+         "src": "assets/images/app-icon-72.png",
+         "type": "image/png",
+         "sizes": "72x72"
+      },
+      {
+         "src": "assets/images/app-icon-48.png",
+         "type": "image/png",
+         "sizes": "48x48"
+      }
+   ],
+   "start_url": "/calendar-my-inner-alcoholic",
+   "display": "standalone"
+}

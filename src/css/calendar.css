@@ -1,0 +1,134 @@
+.selector {
+  display: flex;
+  justify-content: space-between;
+
+  width: 280px;
+  margin-bottom: 10px;
+}
+
+.selector--item {
+  text-align: center;
+  font-size: 16px;
+}
+
+.selector--arrow {
+  width: 20px;
+  height: 20px;
+
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("icons/chevron-left.svg");
+}
+
+.selector--arrow.right {
+  transform: rotate(180deg);
+}
+
+.selector--arrow.disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.calendar {
+  width: 280px;
+  height: 290px;
+
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-row-gap: 10px;
+}
+
+.calendar .cell {
+  padding: 3px 11px 0;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+}
+
+.cell.empty {
+  background-image: url("icons/empty-glass.svg");
+}
+
+.cell.full {
+  background-image: url("icons/full-glass.svg");
+}
+
+.cell.not-come {
+  background-image: url("icons/not-come-glass.svg");
+  color: var(--not-come-text-color);
+}
+
+.cell.today {
+  color: red;
+}
+
+.cell.other-month {
+  opacity: .5;
+}
+
+.year-calendar {
+  width: 280px;
+
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+}
+
+.year-month {
+  display: flex;
+  flex-direction: column;
+
+  cursor: pointer;
+
+  width: 80px;
+  height: 80px;
+}
+
+.year-month .title {
+  width: 100%;
+  margin-bottom: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.year-month .month-cells {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 3px 3px;
+}
+
+.month-cells .month-cell {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: var(--no-active-text-color)
+}
+
+.month-cell.other-day {
+  background-color: rgba(0,0,0,0);
+}
+
+.month-cell.not-come {
+  background-color: var(--not-come-icon-color);
+}
+
+.month-cell.full {
+  background-color: red;
+}
+
