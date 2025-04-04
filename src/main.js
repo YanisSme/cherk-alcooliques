@@ -148,11 +148,14 @@ onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalend
     store.checkedDates.splice(0, store.checkedDates.length, ...loadedCheckedDates);
     console.log('store.checkedDates updated:', store.checkedDates); // Ajoutez cette ligne
 
+    // Afficher l'application calendrier
+    calendarRoot.classList.remove('hidden'); // Supprimer la classe 'hidden' pour afficher
+
+    // Afficher le bouton "Se connecter" (si nécessaire)
+    connectButton.style.display = 'block';
+
     // Masquer le conteneur d'authentification
     authContainer.style.display = 'none';
-
-    // Afficher l'application calendrier
-    calendarRoot.style.display = 'block'; // Utilisez calendarRoot ici
 
     // Initialiser le calendrier ici, après avoir chargé les données
     //initCalendar(); // Ajoutez cette ligne ici
@@ -162,11 +165,10 @@ onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalend
     // L'utilisateur n'est pas connecté
     console.log('Utilisateur déconnecté');
 
-    // Afficher le bouton "Se connecter"
-    connectButton.style.display = 'block';
+    // Masquer l'application calendrier
+    calendarRoot.classList.add('hidden'); // Ajouter la classe 'hidden' pour masquer
 
-    // Masquer l'application calendrier et afficher le conteneur d'authentification
-    calendarRoot.style.display = 'none'; // Utilisez calendarRoot ici
-    authContainer.style.display = 'block'; // Affiche la modale de connexion si l'utilisateur est déconnecté
+    // Afficher le conteneur d'authentification
+    authContainer.style.display = 'block';
   }
 });
