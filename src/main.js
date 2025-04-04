@@ -45,6 +45,8 @@ main()
 // Afficher le formulaire de connexion/inscription lorsque le bouton "Se connecter" est cliqué
 connectButton.addEventListener('click', () => {
   authContainer.style.display = 'block';
+  signupForm.style.display = 'none'; // Masquer le formulaire d'inscription
+  loginForm.style.display = 'block';  // Afficher le formulaire de connexion
 });
 
 // Basculer vers le formulaire de connexion
