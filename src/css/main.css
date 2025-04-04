@@ -13,6 +13,7 @@ body {
 
 header {
   padding: 20px 0;
+  position: relative;
 }
 
 header .title {
@@ -85,4 +86,23 @@ footer {
   pointer-events: none;
   font-size: 10px;
   color: rgba(0,0,0,.5)
+}
+
+#connect-button {
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  top: 21px; 
+  right: 15px; 
+  padding: 5px 10px; 
+  background: none; 
+  border: 1.8px solid #000000; 
+  border-radius: 9px; 
+  cursor: pointer;
+  font-size: 0.9rem; 
+  color: #000000; 
+  font-weight: 400; 
+}
+
+#connect-button:hover {
+  background-color: #f0f0f0; 
 }

@@ -1,7 +1,7 @@
 const CACHE_KEY = 'network_or_cache_key-v1';
 
 const resourceNames = [
-  '/calendar-my-inner-alcoholic/assets/images/app-icon-512.png',
+  '/calendar-my-inner-alcoholic/assets/images/blaireau-plein-512.png',
   '/calendar-my-inner-alcoholic/src/css/icons/chevron-left.svg',
   '/calendar-my-inner-alcoholic/src/css/icons/empty-glass.svg',
   '/calendar-my-inner-alcoholic/src/css/icons/full-glass.svg',
@@ -20,14 +20,12 @@ const resourceNames = [
 ]
 
 self.addEventListener('install', (event) => {
-  console.log('Установлен');
   event.waitUntil(
   caches.open(CACHE_KEY).then((cache) => cache.addAll(resourceNames))
   );
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('Активирован');
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
@@ -42,8 +40,6 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  console.log('Происходит запрос на сервер');
-
   event.respondWith(fromNetwork(event.request)
     .catch(async () => {
       return fromCache(event.request)
@@ -57,8 +53,6 @@ function fromNetwork(request) {
 }
 
 function fromCache(request) {
-// Открываем наше хранилище кэша (CacheStorage API), выполняем поиск запрошенного ресурса.
-// Обратите внимание, что в случае отсутствия соответствия значения Promise выполнится успешно, но со значением `undefined`
   return caches.open(CACHE_KEY).then((cache) =>
     cache.match(request).then((matching) =>
       matching || Promise.reject('no-match')

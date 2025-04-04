@@ -51,8 +51,32 @@
 <body>
   <noscript><div><img src="https://mc.yandex.ru/watch/96089720" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
+
+  <div id="auth-container" style="display: none;">
+    <div id="signup-form">
+      <h2>Inscription</h2>
+      <label for="signup-email">Email:</label><br>
+      <input type="email" id="signup-email" name="signup-email"><br>
+      <label for="signup-password">Mot de passe:</label><br>
+      <input type="password" id="signup-password" name="signup-password"><br><br>
+      <button id="signup-button">S'inscrire</button>
+      <p>Déjà un compte ? <a href="#" id="show-login">Se connecter</a></p>
+    </div>
+  
+    <div id="login-form" style="display: none;">
+      <h2>Connexion</h2>
+      <label for="login-email">Email:</label><br>
+      <input type="email" id="login-email" name="login-email"><br>
+      <label for="login-password">Mot de passe:</label><br>
+      <input type="password" id="login-password" name="login-password"><br><br>
+      <button id="login-button">Se connecter</button>
+      <p>Pas de compte ? <a href="#" id="show-signup">S'inscrire</a></p>
+    </div>
+  </div>
+
   <header>
     <h1 class="title">Le Calendrier du Blaireau</h1>
+    <button id="connect-button">Se connecter</button>
     <div class="tabs">
       <div class="tab active" id="tab-month">Mois</div>
       <div class="tab" id="tab-year">Année</div>
@@ -88,6 +112,26 @@
   <footer>
     version 0.0.5
   </footer>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCaZbAIQeeAgOprhvCsEY9xDpaVAFmqeLU",
+      authDomain: "calendrier-blaireau.firebaseapp.com",
+      projectId: "calendrier-blaireau",
+      storageBucket: "calendrier-blaireau.firebasestorage.app",
+      messagingSenderId: "467824587717",
+      appId: "1:467824587717:web:5fac14d2876ab1a033d1ac",
+      measurementId: "G-KTJZVJ9Z7K"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 
   <script type="module" src="src/main.js"></script>
 </body>
