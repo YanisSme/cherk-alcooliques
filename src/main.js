@@ -1,3 +1,32 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js';
+import { initViewSelector } from './module/viewSelector.js'
+import {initCalendar} from './module/calendar.js'
+import { saveCalendarData, loadCalendarData, initializeFirestore } from './module/database.js';
+import { store } from './store.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCaZbAIQeeAgOprhvCsEY9xDpaVAFmqeLU",
+  authDomain: "calendrier-blaireau.firebaseapp.com",
+  projectId: "calendrier-blaireau",
+  storageBucket: "calendrier-blaireau.firebasestorage.app",
+  messagingSenderId: "467824587717",
+  appId: "1:467824587717:web:5fac14d2876ab1a033d1ac",
+  measurementId: "G-KTJZVJ9Z7K"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export { app };
+const analytics = getAnalytics(app);
+
+// Initialiser Firestore après l'initialisation de l'application
+initializeFirestore(app);
+
+// Récupérez l'instance de auth
+const auth = getAuth();
+
 const connectButton = document.getElementById('connect-button');
 const authContainer = document.getElementById('auth-container');
 const signupForm = document.getElementById('signup-form'); 
@@ -7,16 +36,6 @@ const loginButton = document.getElementById('login-button');
 const showLoginLink = document.getElementById('show-login');   
 const showSignupLink = document.getElementById('show-signup'); 
 const calendarApp = document.getElementById('calendar-app'); 
-
-// Importations Firebase
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } 
-from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js';
-
-import { initViewSelector } from './module/viewSelector.js'
-import {initCalendar} from './module/calendar.js'
-
-// Récupérez l'instance de auth
-const auth = getAuth();
 
 const init = () => {
   initViewSelector()
@@ -115,25 +134,34 @@ loginButton.addEventListener('click', (e) => {
 });
 
 // Gestion de l'état de l'utilisateur
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalendarData est asynchrone
   if (user) {
     // L'utilisateur est connecté
     const uid = user.uid;
     console.log('Utilisateur connecté (via onAuthStateChanged) :', user);
 
+    // Charger les données du calendrier depuis Firestore
+    const loadedCheckedDates = await loadCalendarData(uid);
+
+    // Mettre à jour le store avec les données chargées
+    store.checkedDates.splice(0, store.checkedDates.length, ...loadedCheckedDates);
+
     // Masquer le conteneur d'authentification
     authContainer.style.display = 'none';
+
+    // Afficher l'application calendrier
+    calendarApp.style.display = 'block'; // Assurez-vous que l'application est affichée
 
     // Potentiellement afficher un bouton de déconnexion (nous l'ajouterons plus tard)
   } else {
     // L'utilisateur n'est pas connecté
     console.log('Utilisateur déconnecté');
 
-    // Afficher le bouton "Se connecter" (il devrait déjà l'être par défaut ou après une déconnexion)
+    // Afficher le bouton "Se connecter"
     connectButton.style.display = 'block';
 
-    // Masquer l'application calendrier et potentiellement afficher le conteneur d'authentification
-    calendarApp.style.display = 'none'; // Assurez-vous que l'application est masquée par défaut
-    // authContainer.style.display = 'block'; // Vous pouvez choisir d'afficher les formulaires ici ou seulement au clic du bouton
+    // Masquer l'application calendrier et afficher le conteneur d'authentification
+    calendarApp.style.display = 'none';
+    authContainer.style.display = 'block'; // Affiche la modale de connexion si l'utilisateur est déconnecté
   }
 });

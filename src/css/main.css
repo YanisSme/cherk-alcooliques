@@ -78,16 +78,6 @@ main {
   margin-bottom: 15px;
 }
 
-footer {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-
-  pointer-events: none;
-  font-size: 10px;
-  color: rgba(0,0,0,.5)
-}
-
 #connect-button {
   position: absolute;
   font-family: 'Roboto', sans-serif;
