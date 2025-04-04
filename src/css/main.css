@@ -253,6 +253,25 @@ main {
   background-color: #5e5e5e; /* Couleur verte plus foncée au survol */
 }
 
+#signup-button {
+  display: block; /* Pour que le centrage avec margin: 0 auto fonctionne */
+  margin: 15px auto 0; /* Marge au-dessus et en bas, centrage horizontal */
+  padding: 10px 20px; /* Un peu de rembourrage interne */
+  background-color: #3a3a3a; /* Couleur verte, vous pouvez changer */
+  color: white; /* Texte en blanc */
+  border: none; /* Supprimer la bordure par défaut */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  cursor: pointer; /* Changer le curseur au survol */
+  font-size: 1rem; /* Taille de la police */
+  transition: background-color 0.3s ease; /* Animation douce au survol */
+  width: 80%; /* Occupe une certaine largeur */
+  max-width: 300px; /* Largeur maximale pour ne pas être trop grand */
+}
+
+#signup-button:hover {
+  background-color: #5e5e5e; /* Couleur verte plus foncée au survol */
+}
+
 @media (min-width: 769px) { /* Styles pour les écrans plus grands que 768px */
   #auth-container {
     align-items: center; /* On remet le centrage vertical pour les grands écrans */

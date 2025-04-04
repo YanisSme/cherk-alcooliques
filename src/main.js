@@ -154,6 +154,9 @@ onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalend
     // Afficher le bouton "Se connecter" (si nécessaire)
     connectButton.style.display = 'block';
 
+    // Modifier le texte du bouton "Se connecter" en "Connecté"
+    connectButton.textContent = 'Connecté';
+
     // Masquer le conteneur d'authentification
     authContainer.style.display = 'none';
 
@@ -167,6 +170,9 @@ onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalend
 
     // Masquer l'application calendrier
     calendarRoot.classList.add('hidden'); // Ajouter la classe 'hidden' pour masquer
+
+    // Réinitialiser le texte du bouton à "Se connecter"
+    connectButton.textContent = 'Se connecter'
 
     // Afficher le conteneur d'authentification
     authContainer.style.display = 'block';
