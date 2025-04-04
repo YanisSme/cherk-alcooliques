@@ -18,7 +18,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export { app };
+export { app, auth };
 const analytics = getAnalytics(app);
 
 // Initialiser Firestore après l'initialisation de l'application
@@ -35,7 +35,8 @@ const signupButton = document.getElementById('signup-button');
 const loginButton = document.getElementById('login-button');  
 const showLoginLink = document.getElementById('show-login');   
 const showSignupLink = document.getElementById('show-signup'); 
-const calendarApp = document.getElementById('calendar-app'); 
+// const calendarApp = document.getElementById('calendar-app'); 
+const calendarRoot = document.getElementById('calendar-root');
 
 const init = () => {
   initViewSelector()
@@ -145,12 +146,16 @@ onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalend
 
     // Mettre à jour le store avec les données chargées
     store.checkedDates.splice(0, store.checkedDates.length, ...loadedCheckedDates);
+    console.log('store.checkedDates updated:', store.checkedDates); // Ajoutez cette ligne
 
     // Masquer le conteneur d'authentification
     authContainer.style.display = 'none';
 
     // Afficher l'application calendrier
-    calendarApp.style.display = 'block'; // Assurez-vous que l'application est affichée
+    calendarRoot.style.display = 'block'; // Utilisez calendarRoot ici
+
+    // Initialiser le calendrier ici, après avoir chargé les données
+    //initCalendar(); // Ajoutez cette ligne ici
 
     // Potentiellement afficher un bouton de déconnexion (nous l'ajouterons plus tard)
   } else {
@@ -161,7 +166,7 @@ onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalend
     connectButton.style.display = 'block';
 
     // Masquer l'application calendrier et afficher le conteneur d'authentification
-    calendarApp.style.display = 'none';
+    calendarRoot.style.display = 'none'; // Utilisez calendarRoot ici
     authContainer.style.display = 'block'; // Affiche la modale de connexion si l'utilisateur est déconnecté
   }
 });

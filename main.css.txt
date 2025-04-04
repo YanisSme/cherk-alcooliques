@@ -1,0 +1,297 @@
+:root {
+  --text-color: #343434;
+  --no-active-text-color: #d5d5d5;
+  --not-come-text-color: #959595;
+  --not-come-icon-color: #e8e8e8;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+
+  color: var(--text-color)
+}
+
+header {
+  padding: 20px 0;
+  position: relative;
+}
+
+header .title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+header .tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  border-bottom: 2px solid #eee;
+}
+
+header .tabs .tab {
+  padding-bottom: 10px;
+  margin-bottom: -2px;
+
+  font-size: 18px;
+  color: var(--no-active-text-color);
+  cursor: pointer;
+}
+
+header .tabs .tab.active {
+  color: var(--text-color);
+  border-bottom: 2px solid red;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 375px;
+}
+
+.button-go-today {
+  margin-top: 20px;
+  width: 200px;
+  height: 40px;
+
+  background: none;
+  border: 2px solid #767676;
+
+  cursor: pointer;
+  color: #767676;
+}
+
+.statistic {
+  width: 280px;
+  margin-top: 50px;
+}
+
+.statistic-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#connect-button {
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  top: 67px; 
+  right: 5px; 
+  padding: 3px 3px; 
+  background: none; 
+  border: 1.8px solid #000000; 
+  border-radius: 9px; 
+  cursor: pointer;
+  font-size: 0.9rem; 
+  color: #000000; 
+  font-weight: 400; 
+}
+
+#connect-button:hover {
+  background-color: #f0f0f0; 
+}
+
+.statistic {
+  background-color: #f9f9f9; /* Fond gris clair */
+  border: 1px solid #eee; /* Bordure légère */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px; /* Espace intérieur */
+  margin-top: 30px; /* Marge au-dessus */
+  width: 90%; /* Occupe une bonne partie de la largeur */
+  max-width: 400px; /* Largeur maximale pour ne pas être trop étiré */
+  text-align: center; /* Centrer le texte à l'intérieur */
+}
+
+.statistic-title {
+  font-size: 1.5rem; /* Taille de titre un peu plus grande */
+  margin-bottom: 20px;
+  color: #000000; /* Couleur de titre un peu moins foncée */
+}
+
+.statistic-param {
+  font-size: 1rem; /* Taille de police normale */
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.statistic-param strong {
+  font-weight: bold; /* Mettre en évidence le libellé */
+  color: #007bff; /* Couleur pour le libellé */
+}
+
+.statistic-value {
+  font-weight: bold; /* Mettre en évidence la valeur */
+  color: #ff0000; /* Couleur verte pour les valeurs positives (vous pouvez changer) */
+  font-size: 1.1rem; /* Taille un peu plus grande pour la valeur */
+}
+
+#auth-container {
+  display: none; /* Initialement caché */
+  position: fixed; /* Pour qu'il reste au-dessus du contenu */
+  z-index: 1000; /* Pour être au-dessus des autres éléments */
+  left: 50%; /* Positionne le bord gauche au centre de l'écran */
+  top: 8vh; /* Diminuez la valeur de top pour le monter (essayez 10% ou 15%) */
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permet le défilement si le contenu est trop grand */
+  display: flex; /* Pour centrer le contenu */
+  justify-content: center; /* Centre horizontalement */
+  margin: 0; /* Ajout de cette ligne */
+  transform: translateX(-50%); /* Décale l'élément de la moitié de sa propre largeur vers la gauche pour le centrer */
+  /*align-items: flex-start;
+}
+
+#auth-container > div { /* Style pour les formulaires à l'intérieur */
+  background-color: #fff; /* Fond blanc */
+  padding: 30px; /* Plus de padding */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ombre légère */
+  width: 90%; /* Gardons une largeur responsive */
+  max-width: 500px; /* Augmentez la largeur maximale pour un aspect plus rectangulaire */
+  /* height: auto; Vous pouvez commenter ou supprimer cette ligne si elle existe */
+}
+
+#auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; /* Couleur du titre */
+}
+
+#auth-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555; /* Couleur des labels */
+  font-weight: bold;
+}
+
+#auth-container input[type=email],
+#auth-container input[type=password] {
+  width: calc(100% - 22px); /* Ajustement pour le padding */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#auth-container button[type=submit] {
+  background-color: #007bff; /* Couleur bleue moderne */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#auth-container button[type=submit]:hover {
+  background-color: #0056b3;
+}
+
+#auth-container p {
+  margin-top: 15px;
+  text-align: center;
+  color: #777;
+}
+
+#auth-container p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#auth-container p a:hover {
+  text-decoration: underline;
+}
+
+#auth-container .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+#auth-container .close-btn:hover {
+  opacity: 1;
+  color: #333;
+  text-decoration: none;
+}
+
+#login-form {
+  display: none; /* Si vous avez toujours la logique de bascule */
+}
+
+#login-button {
+  display: block; /* Pour que le centrage avec margin: 0 auto fonctionne */
+  margin: 15px auto 0; /* Marge au-dessus et en bas, centrage horizontal */
+  padding: 10px 20px; /* Un peu de rembourrage interne */
+  background-color: #3a3a3a; /* Couleur verte, vous pouvez changer */
+  color: white; /* Texte en blanc */
+  border: none; /* Supprimer la bordure par défaut */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  cursor: pointer; /* Changer le curseur au survol */
+  font-size: 1rem; /* Taille de la police */
+  transition: background-color 0.3s ease; /* Animation douce au survol */
+  width: 80%; /* Occupe une certaine largeur */
+  max-width: 300px; /* Largeur maximale pour ne pas être trop grand */
+}
+
+#login-button:hover {
+  background-color: #5e5e5e; /* Couleur verte plus foncée au survol */
+}
+
+@media (min-width: 769px) { /* Styles pour les écrans plus grands que 768px */
+  #auth-container {
+    align-items: center; /* On remet le centrage vertical pour les grands écrans */
+    top: 0; /* On remet le top à 0 pour laisser align-items faire le centrage vertical */
+    left: 50%; /* Ajoutez cette ligne pour le centrage horizontal */
+    transform: translateX(-50%); /* Ajoutez cette ligne pour le centrage horizontal */
+  }
+
+  #auth-container > div {
+    width: 400px; /* On fixe une largeur plus adaptée aux écrans d'ordinateur */
+    max-width: 400px; /* On garde la même largeur maximale */
+    padding: 30px; /* On remet le padding initial */
+  }
+
+  #auth-container h2 {
+    font-size: 2rem; /* On remet une taille de titre plus grande */
+    margin-bottom: 20px;
+  }
+
+  #auth-container label {
+    font-size: 1rem; /* On remet la taille des labels */
+    margin-bottom: 8px;
+  }
+
+  #auth-container input[type=email],
+  #auth-container input[type=password] {
+    font-size: 1rem; /* On remet la taille du texte des inputs */
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  #auth-container button[type=submit] {
+    font-size: 1rem; /* On remet la taille du texte du bouton */
+    padding: 12px 20px;
+  }
+
+  #auth-container .close-btn {
+    font-size: 30px; /* On remet la taille du bouton de fermeture */
+    top: 10px;
+    right: 5px;
+  }
+}

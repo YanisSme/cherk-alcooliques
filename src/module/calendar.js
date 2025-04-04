@@ -2,6 +2,9 @@ import {DOM, ViewType} from '../config.js'
 import {store, subscribeStore} from '../store.js'
 import {getCurrentMonthIndex, getCurrentYear, getNextDate, getPrevDate} from '../utils/dateUtils.js'
 import {handleClickTabMonth} from './viewSelector.js'
+import { saveCalendarData } from './database.js';
+import { auth } from '../main.js'; // Laissez cette ligne pour importer auth
+// Supprimez toute autre importation de 'app' si vous l'avez ajoutée ici par erreur
 
 const dayTime = 24*60*60*1000
 
@@ -18,6 +21,7 @@ const handleCellClick = (event) => {
 }
 
 const renderCalendar = () => {
+  console.log('renderCalendar called'); // Ajoutez cette ligne pour le débogage
   const container = DOM.calendarContainer
 
   if (store.viewType !== ViewType.Month) {
@@ -194,11 +198,16 @@ const renderTodayButton = () => {
 }
 
 const listenStore = () => {
+  console.log('listenStore called, viewType:', store.viewType); // Ajoutez cette ligne
   renderSelector()
-
   renderCalendar()
   renderYearCalendar()
   renderTodayButton()
+
+    // Ajoutez l'appel à saveCalendarData ici
+    if (auth.currentUser) { // Assurez-vous que l'utilisateur est connecté
+      saveCalendarData(auth.currentUser.uid, store.checkedDates);
+    }
 }
 
 const handleClickPrevButton = () => {
