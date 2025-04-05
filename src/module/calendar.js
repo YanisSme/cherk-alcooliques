@@ -101,6 +101,15 @@ const renderCalendar = () => {
   DOM.statistic.totalDays.innerText = totalDays.length.toString()
   DOM.statistic.drinking.innerText = drinkingDays.length.toString()
   DOM.statistic.notDrinking.innerText = (totalDays.length - drinkingDays.length).toString()
+
+   // Calculer et afficher la proportion
+   const progressElement = document.getElementById('drinking-progress');
+   const percentage = totalDays.length > 0 ? (drinkingDays.length / totalDays.length) * 100 : 0;
+   progressElement.style.width = `${percentage}%`;
+ 
+   // Afficher le pourcentage
+   const percentageElement = document.getElementById('drinking-percentage');
+   percentageElement.textContent = `${Math.round(percentage)}%`; // On arrondit le pourcentage pour l'affichage
 }
 
 const renderYearCalendar = () => {
@@ -184,6 +193,15 @@ const renderYearCalendar = () => {
   DOM.statistic.totalDays.innerText = totalDays.length.toString()
   DOM.statistic.drinking.innerText = drinkingDays.length.toString()
   DOM.statistic.notDrinking.innerText = (totalDays.length - drinkingDays.length).toString()
+
+   // Calculer et afficher la proportion
+   const progressElement = document.getElementById('drinking-progress');
+   const percentage = totalDays.length > 0 ? (drinkingDays.length / totalDays.length) * 100 : 0;
+   progressElement.style.width = `${percentage}%`;
+ 
+   // Afficher le pourcentage
+   const percentageElement = document.getElementById('drinking-percentage');
+   percentageElement.textContent = `${Math.round(percentage)}%`; // On arrondit le pourcentage pour l'affichage
 }
 
 const renderSelector = () => {

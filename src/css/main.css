@@ -84,6 +84,23 @@ main {
   margin-bottom: 15px;
 }
 
+.progress-bar-container {
+  width: 100%; /* La barre prendra toute la largeur disponible */
+  height: 10px; /* Hauteur de la barre */
+  background-color: #eee; /* Couleur de fond de la barre (gris clair) */
+  border-radius: 5px; /* Bords arrondis */
+  margin-top: 9px; /* Un peu d'espace au-dessus */
+  margin-bottom: 12px;
+  overflow: hidden; /* Important pour que la barre intérieure ne dépasse pas */
+}
+
+.progress-bar {
+  background-color: rgb(65, 65, 65); /* Couleur de la barre de progression (rouge, comme vos jours "pintés") */
+  height: 100%; /* Prend toute la hauteur du conteneur */
+  width: 0%; /* Initialement à 0% */
+  border-radius: 5px; /* Bords arrondis */
+}
+
 #connect-button {
   position: absolute;
   font-family: 'Roboto', sans-serif;
