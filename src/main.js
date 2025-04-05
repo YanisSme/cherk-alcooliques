@@ -161,7 +161,7 @@ onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalend
     authContainer.style.display = 'none';
 
     // Initialiser le calendrier ici, après avoir chargé les données
-    //initCalendar(); // Ajoutez cette ligne ici
+    initCalendar(); // Ajoutez cette ligne ici
 
     // Potentiellement afficher un bouton de déconnexion (nous l'ajouterons plus tard)
   } else {
