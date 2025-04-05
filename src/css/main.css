@@ -7,8 +7,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-
-  color: var(--text-color)
+  color: var(--text-color);
 }
 
 header {
@@ -58,14 +57,21 @@ main {
 
 .button-go-today {
   margin-top: 20px;
-  width: 200px;
-  height: 40px;
-
+  width: 200px; /* Garder la largeur */
+  height: 40px; /* Garder la hauteur */
+  padding: 3px 3px; /* Copier le padding du bouton "Connecté" */
   background: none;
-  border: 2px solid #767676;
-
+  border: 1.8px solid #000000; /* Copier la bordure du bouton "Connecté" */
+  border-radius: 9px; /* Copier le border-radius du bouton "Connecté" */
   cursor: pointer;
-  color: #767676;
+  font-size: 0.9rem; /* Copier la taille de la police du bouton "Connecté" */
+  color: #000000; /* Copier la couleur du texte du bouton "Connecté" */
+  font-weight: 400; /* Copier le poids de la police du bouton "Connecté" */
+  transition: background-color 0.3s ease; /* Ajouter la transition pour l'effet au survol */
+}
+
+.button-go-today:hover {
+  background-color: #f0f0f0; /* Copier l'effet au survol du bouton "Connecté" */
 }
 
 .statistic {
