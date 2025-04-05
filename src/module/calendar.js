@@ -3,8 +3,7 @@ import {store, subscribeStore} from '../store.js'
 import {getCurrentMonthIndex, getCurrentYear, getNextDate, getPrevDate} from '../utils/dateUtils.js'
 import {handleClickTabMonth} from './viewSelector.js'
 import { saveCalendarData } from './database.js';
-import { auth } from '../main.js'; // Laissez cette ligne pour importer auth
-// Supprimez toute autre importation de 'app' si vous l'avez ajoutée ici par erreur
+import { auth } from '../main.js'; 
 
 const dayTime = 24*60*60*1000
 
@@ -21,7 +20,6 @@ const handleCellClick = (event) => {
 }
 
 const renderCalendar = () => {
-  console.log('renderCalendar called'); // Ajoutez cette ligne pour le débogage
   const container = DOM.calendarContainer
 
   if (store.viewType !== ViewType.Month) {

@@ -35,7 +35,6 @@ const signupButton = document.getElementById('signup-button');
 const loginButton = document.getElementById('login-button');  
 const showLoginLink = document.getElementById('show-login');   
 const showSignupLink = document.getElementById('show-signup'); 
-// const calendarApp = document.getElementById('calendar-app'); 
 const calendarRoot = document.getElementById('calendar-root');
 
 const init = () => {
@@ -163,7 +162,7 @@ onAuthStateChanged(auth, async (user) => { // Ajoutez 'async' ici car loadCalend
     // Initialiser le calendrier ici, après avoir chargé les données
     initCalendar(); // Ajoutez cette ligne ici
 
-    // Potentiellement afficher un bouton de déconnexion (nous l'ajouterons plus tard)
+    // Potentiellement afficher un bouton de déconnexion (à faire)
   } else {
     // L'utilisateur n'est pas connecté
     console.log('Utilisateur déconnecté');
